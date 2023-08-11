@@ -30,6 +30,9 @@ public class LembreteService {
     @Transactional(rollbackFor = Exception.class)
     public Lembrete cadastrar(Lembrete lembrete){
 
+
+        Assert.notNull(lembrete.getId_pessoa(),"Precisa asociar uma pessoa ao lembrete");
+
         return this.lembreteRepository.save(lembrete);
 
     }

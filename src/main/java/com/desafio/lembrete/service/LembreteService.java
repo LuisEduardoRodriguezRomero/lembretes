@@ -42,7 +42,7 @@ public class LembreteService {
     public Lembrete editar(Lembrete lembrete, Long id){
 
         Optional<Lembrete> lembreteBD = lembreteRepository.findById(id);
-        Assert.isTrue(!lembreteBD.isEmpty(),";Lembrete nao cadastrado");
+        Assert.isTrue(!lembreteBD.isEmpty(),"Lembrete nao cadastrado");
 
         return this.lembreteRepository.save(lembrete);
 
@@ -51,12 +51,13 @@ public class LembreteService {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public void deletar( Long id){
+    public String deletar( Long id){
 
         Optional<Lembrete> lembreteBD = lembreteRepository.findById(id);
-        Assert.isTrue(!lembreteBD.isEmpty(),";Lembrete nao cadastrado");
+        Assert.isTrue(!lembreteBD.isEmpty(),"Lembrete nao cadastrado");
 
          lembreteRepository.deleteById(id);
+         return "Lembrete excluido";
 
 
     }

@@ -62,7 +62,14 @@ public class LembreteTest {
 }
 
 
+@Test
+    public void deletarLembreteTest(){
 
+
+    Optional<Lembrete> lembreteExcluir = lembreteRepository.findById(1L);
+    Assertions.assertEquals(null,lembreteService.deletar(lembreteExcluir.get().getId()),"Lembrete excluido");
+
+}
 
 
 

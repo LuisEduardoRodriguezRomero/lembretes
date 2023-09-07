@@ -55,14 +55,14 @@ public class PessoaService {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public void deletar(Long id){
+    public String deletar(Long id){
 
         Optional<Pessoa> pessoaDB = pessoaRepository.findById(id);
 
         Assert.isTrue(!pessoaDB.isEmpty(),"Pessoa nao cadastrada");
 
         pessoaRepository.deleteById(id);
-
+        return "Pessoa excluida";
 
     }
 

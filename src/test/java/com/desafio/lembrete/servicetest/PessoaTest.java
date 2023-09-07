@@ -47,12 +47,26 @@ public class PessoaTest {
     @Test
     public  void getByIdTest(){
 
-        var pessoatest = pessoaRepository.findById(1L);
+        Optional<Pessoa> pessoatest = pessoaRepository.findById(1L);
         Long id = pessoatest.get().getId();
 
         Assertions.assertEquals(pessoatest,pessoaRepository.findById(id));
         
 
+    }
+
+
+
+
+
+    @Test
+    public void deletarPessoaTest(){
+
+        Optional<Pessoa> pessoaDeletar = pessoaRepository.findById(1L);
+
+        Long id = pessoaDeletar.get().getId();
+
+        Assertions.assertEquals(null,pessoaService.deletar(id),"Pessoa excluida");
     }
 
 

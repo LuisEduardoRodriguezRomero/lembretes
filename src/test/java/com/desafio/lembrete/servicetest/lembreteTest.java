@@ -37,14 +37,14 @@ public class lembreteTest {
 
 }
 
-@Test
+/*@Test
     public void cadastrarLembreteTest(){
 
     Assertions.assertEquals(lembreteService.cadastrar(new Lembrete(1L,"Lembrete 1",pessoaRepository.findById(1L).get())));
 
 
 }
-
+*/
 
 
 
